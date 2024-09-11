@@ -1,4 +1,4 @@
-.post{
+.Singlepost{
     
     background-color: white;
     cursor: pointer;
@@ -7,29 +7,29 @@
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-.post:hover{
-    transform: scale(1.05); /* Increase size by 5% */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+/* .post:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   
-  }
+  } */
   
-.post .title{
+.Singlepost .title{
     background-color: #D9B8F3;
     padding: 20px 20px;
     border-radius: 12px;
     font-family: "Nerko One", cursive;
     font-size: 30px;
   }
-.post .body{
+.Singlepost .body{
     
     padding: 20px 20px;
     
   }
-.post .footer{
+  .Singlepost .footer{
     padding: 20px 20px;
     
   }
-.post .footer .user{
+.Singlepost .footer .user{
     color: #4558C8;
     font-weight: bold;
     
