@@ -24,11 +24,25 @@ const Post = () => {
     },[]);
 
     const addComment=()=>{
-        axios.post("http://localhost:3001/Comments",{commentBody:newComment,PostId:id})
+        axios.post("http://localhost:3001/Comments",
+            {commentBody:newComment,
+                PostId:id},
+            {
+                headers:{
+                    accessToken:sessionStorage.getItem("accessToken")
+                }
+            }
+            
+        )
         .then((response )=>{
-            const commentToAdd={commentBody:newComment};
-            setComments([...comments,commentToAdd]);
-            setNewComment("")
+            if(response.data.err){
+                console.group(response.data.err);
+            }else{
+                const commentToAdd={commentBody:newComment};
+                setComments([...comments,commentToAdd]);
+                setNewComment("");
+            }
+            
         })
     }
   return (
@@ -46,27 +60,32 @@ const Post = () => {
             
         </div>
         <div class="rightSide">
-            <h1>Comment Section</h1>
-            <div className="addCommentContainer">
-              <input
-              onChange={(event)=>{setNewComment(event.target.value)}}
-              type="text" 
-              placeholder='Comments..'
-              value={newComment}
-              />
-              <button
-              onClick={addComment}
-              >Add a Comment</button>
-            </div>
+            
+            
+               
             <div className='listOfComments'>
-                {comments.map((comment,key)=>{
-                    return <div key={key} className='comment'>{comment.commentBody}
-                   
-                    </div>
-                
+            <h1>Comment Section</h1>
+                    {comments.map((comment,key)=>{
+                        return <div key={key} className='comment'><span>{comment.commentBody}</span>
                     
-                })}
+                        </div>
+                    
+                        
+                    })}
+
+                <div className="addCommentContainer">
+                    <input
+                    onChange={(event)=>{setNewComment(event.target.value)}}
+                    type="text" 
+                    placeholder='Comments..'
+                    value={newComment}
+                    />
+                    <button
+                    onClick={addComment}
+                    >Add</button>
             </div>
+            </div>
+            
         </div>
       
     </div>

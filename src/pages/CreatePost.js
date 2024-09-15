@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import './createPost.css';
 import {useNavigate} from "react-router-dom";
+import Star from './Shapes/Star';
 
 const CreatePost = () => {
 
@@ -28,7 +29,7 @@ const CreatePost = () => {
 
     
   return (
-    
+    <>
     <div className='createPostContainer'>
       <Formik initialValues={initialValue} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form className='form'>
@@ -49,7 +50,17 @@ const CreatePost = () => {
             <button type="submit" >Create Your Post!</button>
         </Form>
       </Formik>
+
+      
     </div>
+
+    <div className='elements'>
+        <div className='star'>
+        
+        </div>
+      </div>
+    </>
+    
   )
 }
 

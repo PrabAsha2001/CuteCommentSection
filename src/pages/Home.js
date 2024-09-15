@@ -1,9 +1,9 @@
 import React from 'react'
 import './home.css'
-
 import axios from 'axios';
 import { useEffect ,useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import Star from './Shapes/Star';
 
 const Home = () => {
     const [listOfPosts,setListOfPosts]=useState([]);
@@ -18,6 +18,7 @@ const Home = () => {
   },[])
   return (
     <div className='home'> 
+    
       {listOfPosts.map((value,key)=>{
         return<div className='post' onClick={() => { history(`/post/${value.id}`); }}>
           <div className='title'>{value.title}</div>

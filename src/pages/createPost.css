@@ -51,3 +51,14 @@ button:hover{
     font-size: 14px;
     margin-bottom: 20px;
 }
+
+/* elemts */
+.elements{
+    position: absolute;
+}
+.elements .star{
+
+    position: absolute;
+    left: 50px;
+  
+}
